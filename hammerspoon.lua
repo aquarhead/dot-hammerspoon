@@ -2,7 +2,7 @@ itunesTitle = hs.menubar.new()
 
 function setItunesTitle()
   if hs.itunes.isRunning() then
-    title = hs.itunes.getCurrentTrack()
+    title = string.gsub(hs.itunes.getCurrentTrack(), "%(Live at .*%)", "")
     album = hs.itunes.getCurrentAlbum()
     artist = hs.itunes.getCurrentArtist()
     if title and hs.itunes.getPlaybackState() ~= hs.itunes.state_stopped then
